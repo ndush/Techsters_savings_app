@@ -3,8 +3,6 @@ import 'package:savings_app/features/home/widgets/vetted_opportunities_section.d
 import 'package:savings_app/features/invest/widgets/invest_details_card.dart';
 import 'package:savings_app/features/invest/widgets/tab_section.dart';
 
-
-
 class InvestView extends StatelessWidget {
   const InvestView({super.key});
 
@@ -12,22 +10,22 @@ class InvestView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My Investments"),
+        title: const Text("My Investments"),
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {
+              onPressed: () {
 
-            },
-            icon: Icon(Icons.info_outline_rounded),
+              },
+              icon: const Icon(Icons.info_outline_rounded),
           )
         ],
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           InvestDetailsCard(),
-          Divider(),
+          const Divider(),
           VettedOpportunitiesSection(),
           TabSection(),
         ],

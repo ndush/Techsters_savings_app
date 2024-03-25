@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:savings_app/features/savings/widgets/strict_savings_items.dart';
 
@@ -7,15 +8,15 @@ class FlexibleSavingsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Flexible savings",
+          const Text(
+              "Flexible savings",
             style: TextStyle(
-              fontSize: 16,
-              color: Colors.black38,
+                fontSize: 16,
+                color: Colors.black38,
             ),
           ),
           //Flexible section below
@@ -25,19 +26,19 @@ class FlexibleSavingsSection extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 8,
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 StrictSavingsItem(
-                  textOnButton: "\$100",
-                  title: "Flex Dollar",
-                  subtitle: "Save in dollars, earn interest",
-                  color: Colors.black87,
+                    textOnButton: "\$100",
+                    title: "Flex Dollar",
+                    subtitle: "Save in dollars, earn interest",
+                    color: Colors.black87,
                 ),
                 StrictSavingsItem(
-                  textOnButton: "NGN 400000",
-                  title: "Flex Naira",
-                  subtitle: "Your emergency funds with interest",
-                  color: Colors.pinkAccent,
+                    textOnButton: "NGN 400000",
+                    title: "Flex Naira",
+                    subtitle: "Your emergency funds with interest",
+                    color: Colors.pinkAccent,
                 )
               ],
             ),

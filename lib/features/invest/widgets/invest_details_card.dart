@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:savings_app/utils.dart';
 
 class InvestDetailsCard extends StatelessWidget {
   const InvestDetailsCard({super.key});
@@ -6,7 +8,7 @@ class InvestDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.deepPurple,
         borderRadius: BorderRadius.circular(8),
@@ -15,18 +17,18 @@ class InvestDetailsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Chip(
-            label: Text("Up to 35% return"),
+          const Chip(
+              label: Text("Up to 35% return"),
             shape: StadiumBorder(),
           ),
-          SizedBox(height: 16,),
-          Text(
-            "Total Investment",
+          const SizedBox(height: 16,),
+          const Text(
+              "Total Investment",
             style: TextStyle(color: Colors.white),
           ),
           Text(
-            "NGN 0",
-            style: TextStyle(color: Colors.white),
+              "${getNaira()} 0",
+              style: const TextStyle(color: Colors.white),
           ),
         ],
       ),

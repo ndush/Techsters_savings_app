@@ -8,17 +8,18 @@ class MyTodoItem extends StatelessWidget {
     this.onPressed,
   });
 
-final String title;
-final double progress;
-final Function()? onPressed;
+  final String title;
+  final double progress;
+  final Function()? onPressed;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
-      margin: EdgeInsets.only(right: 16),
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(right: 16),
       width: 150,
       decoration: BoxDecoration(
-        borderRadius:  BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8),
         color: Colors.white,
       ),
       child: Column(
@@ -27,7 +28,7 @@ final Function()? onPressed;
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18
             ),
@@ -35,12 +36,11 @@ final Function()? onPressed;
           LinearProgressIndicator(
             value: progress,
           ),
-          IconButton
-            (onPressed: onPressed,
-            icon: Icon(Icons.arrow_forward_ios),
+          IconButton(
+            onPressed: onPressed,
+            icon: const Icon(Icons.arrow_forward_ios,size: 20,),
             style: IconButton.styleFrom(
               backgroundColor: Colors.grey.shade300,
-
             ),
           )
         ],

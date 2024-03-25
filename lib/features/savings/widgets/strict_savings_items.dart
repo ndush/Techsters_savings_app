@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 class StrictSavingsItem extends StatelessWidget {
@@ -21,7 +23,7 @@ class StrictSavingsItem extends StatelessWidget {
           color: Colors.blue.shade50,
           borderRadius: BorderRadius.circular(16),
         ),
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,13 +32,13 @@ class StrictSavingsItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
-                  onPressed: (){},
-                  child: Text(textOnButton),
-                  style: ElevatedButton.styleFrom(
+                    onPressed: (){},
+                    style: ElevatedButton.styleFrom(
                       backgroundColor: color,
                       foregroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(horizontal: 4)
-                  ),
+                      padding: const EdgeInsets.symmetric(horizontal: 4)
+                    ),
+                    child: Text(textOnButton),
                 ),
               ],
             ),
@@ -54,7 +56,7 @@ class StrictSavingsItem extends StatelessWidget {
 
                 Text(
                   subtitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold
                   ),
                 )

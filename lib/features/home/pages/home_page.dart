@@ -5,7 +5,11 @@ import 'package:savings_app/features/home/pages/home_view.dart';
 import 'package:savings_app/features/invest/pages/invest_view.dart';
 import 'package:savings_app/features/savings/pages/savings_view.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatefulWidget{
+  const HomePage({super.key});
+
+
+  static route() => MaterialPageRoute(builder: (context) => const HomePage(),);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -13,38 +17,55 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var listOfPages = [
-    HomeView(),
-    SavingsView(),
-    InvestView(),
-    AccountView()
+    const HomeView(),
+    const SavingsView(),
+    const InvestView(),
+    const AccountView()
   ];
-  var selectedIndex = 0;
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    context.read<HomeBloc>().loadUserDetails();
+  }
+
+  @override
+  Widget build(BuildContext context){
+    HomeBloc homeBloc = context.watch<HomeBloc>();
+    HomeState homeState = homeBloc.state;
+    int selectedIndex = homeState.tabIndex;
+
     return Scaffold(
-
-      body: listOfPages[selectedIndex],
-
+      body: IndexedStack(
+        index: selectedIndex,
+        children: listOfPages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.purple,
+        selectedItemColor: Colors.blue,
         showSelectedLabels: true,
         showUnselectedLabels: true,
         onTap: (value) {
-          setState(() {
-            selectedIndex = value;
-          });
+          homeBloc.updateTabIndex(value);
         },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home),
-          label: "Home"),
-          BottomNavigationBarItem(icon:Icon(Icons.savings),
-          label: "Savings"),
-          BottomNavigationBarItem(icon: Icon(Icons.rocket_launch),
-          label: "Invest"),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle),
-          label: "Account"),
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home"
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.savings),
+              label: "Savings",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.rocket_launch),
+              label: "Invest"
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              label: "Account"
+          ),
         ],
       ),
     );
